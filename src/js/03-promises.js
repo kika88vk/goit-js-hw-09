@@ -34,6 +34,7 @@ function createPromise(position, delay) {
 
 function formSubmit(evt) {
   evt.preventDefault();
+
   const {
     elements: { delay, step, amount }
   } = evt.currentTarget;
@@ -45,6 +46,7 @@ function formSubmit(evt) {
     createPromise(position, delay.value)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        return delay + step.value;
       })
       .catch(({ position, delay }) => {
         Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
