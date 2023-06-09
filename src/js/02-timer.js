@@ -45,6 +45,8 @@ function onClickStartTime() {
             clearInterval(timerID);
         }
     }, 1000);
+    btnStart.disabled = true;
+    inputEl.disabled = true;
 
 };
 
